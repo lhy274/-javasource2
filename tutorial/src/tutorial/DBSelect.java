@@ -1,21 +1,22 @@
-package jdbc;
+package tutorial;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class DBSelect {
+public class DBSㅇelect {
 
 	public static void main(String[] args) {
-		Connection con=null;
-		//sql 문 전송 
-		PreparedStatement pstmt=null;
-		//sql 문 결과
-		ResultSet rs=null;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url ="jdbc:oracle:thin:@localhost:1521:orcl";
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 			String user = "javaDB";
 			String password = "12345";
 			
@@ -24,8 +25,7 @@ public class DBSelect {
 				String sql = "select * from userTBL";
 				
 				pstmt = con.prepareStatement(sql);
-				//전송된 sql문 실행 후 결과 담기
-				rs=pstmt.executeQuery();
+				rs = pstmt.executeQuery();
 				while(rs.next()) {
 					System.out.print(rs.getInt(1)+"\t");
 					System.out.print(rs.getString(2)+"\t");
@@ -45,6 +45,7 @@ public class DBSelect {
 				e2.printStackTrace();
 			}
 		}
+
 	}
 
 }
