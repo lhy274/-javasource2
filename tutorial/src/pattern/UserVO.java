@@ -1,20 +1,21 @@
-package domain;
+package pattern;
 
 public class UserVO {
-	// userTBL 테이블의 하나의 레코드를 담을 수 있는 형태로 작성
+
+//  NO NUMBER(8) CONSTRAINT PK_USERTBL PRIMARY KEY,
+//  USERNAME NCHAR(4) NOT NULL,
+//  BIRTHYEAR NUMBER(4) NOT NULL,
+//  ADDR NCHAR(4) NOT NULL,
+//  MOBILE NVARCHAR2(13));	
 	
-//	  NO NUMBER(8) CONSTRAINT PK_USERTBL PRIMARY KEY,
-//    USERNAME NCHAR(4) NOT NULL,
-//    BIRTHYEAR NUMBER(4) NOT NULL,
-//    ADDR NCHAR(4) NOT NULL,
-//    MOBILE NVARCHAR2(13));
-
-
+	
 	private int no;
 	private String userName;
 	private int birthYear;
 	private String addr;
 	private String mobile;
+	
+	
 	
 	public int getNo() {
 		return no;
@@ -48,7 +49,7 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "no=" + no + ", userName=" + userName + ", birthYear=" + birthYear + ", addr=" + addr
+		return "o=" + no + ", userName=" + userName + ", birthYear=" + birthYear + ", addr=" + addr
 				+ ", mobile=" + mobile;
 	}
 	
@@ -57,9 +58,9 @@ public class UserVO {
 	
 	
 	
+	
+	
+	
+	
+	
 }
-
-
-
-
-

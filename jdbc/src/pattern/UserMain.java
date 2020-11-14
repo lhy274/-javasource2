@@ -7,13 +7,13 @@ public class UserMain {
 
 	public static void main(String[] args) {
 		System.out.println("==== UserTBL ====");
-		System.out.println("1. Á¶È¸");
-		System.out.println("2. »ğÀÔ");
-		System.out.println("3. »èÁ¦");
-		System.out.println("4. ¼öÁ¤");
+		System.out.println("1. ì¡°íšŒ");
+		System.out.println("2. ì‚½ì…");
+		System.out.println("3. ì‚­ì œ");
+		System.out.println("4. ìˆ˜ì •");
 		System.out.println("===================");
 		
-		System.out.println("¹øÈ£ ÀÔ·Â : ");
+		System.out.println("ë²ˆí˜¸ ì…ë ¥ : ");
 		Scanner sc = new Scanner(System.in);
 		int menu = sc.nextInt();
 		
@@ -21,7 +21,7 @@ public class UserMain {
 		
 		switch(menu) {
 		case 1:
-			System.out.println("userTBL ÀüÃ¼ Ãâ·Â");
+			System.out.println("userTBL ì „ì²´ ì¶œë ¥");
 			List<UserVO> list=dao.getList();
 			for(UserVO vo:list) {
 				System.out.println(vo);
@@ -29,31 +29,31 @@ public class UserMain {
 			break;
 		case 2:
 			UserVO vo = new UserVO();
-			System.out.println("Ãß°¡ÇÒ È¸¿øÁ¤º¸ ÀÔ·Â ");
-			System.out.print("ÀÔ·ÂÇÒ È¸¿ø ÀÌ¸§ ÀÔ·Â : ");
+			System.out.println("ì¶”ê°€í•  íšŒì›ì •ë³´ ì…ë ¥ ");
+			System.out.print("ì…ë ¥í•  íšŒì› ì´ë¦„ ì…ë ¥ : ");
 			vo.setUserName(sc.next());
-			System.out.println("ÀÔ·ÂÇÒ È¸¿ø »ıÀÏ ÀÔ·Â : ");
+			System.out.println("ì…ë ¥í•  íšŒì› ìƒì¼ ì…ë ¥ : ");
 			vo.setBirthYear(sc.nextInt());
-			System.out.println("ÀÔ·ÂÇÒ È¸¿ø ÁÖ¼Ò ÀÔ·Â : ");
+			System.out.println("ì…ë ¥í•  íšŒì› ì£¼ì†Œ ì…ë ¥ : ");
 			vo.setAddr(sc.next());
-			System.out.println("ÀÔ·ÂÇÒ È¸¿ø ÀüÈ­¹øÈ£ ÀÔ·Â : ");
+			System.out.println("ì…ë ¥í•  íšŒì› ì „í™”ë²ˆí˜¸ ì…ë ¥ : ");
 			vo.setMobile(sc.next());
-			System.out.println(dao.insertUser(vo)?"ÀÔ·Â¼º°ø":"ÀÔ·Â½ÇÆĞ");
+			System.out.println(dao.insertUser(vo)?"ì…ë ¥ì„±ê³µ":"ì…ë ¥ì‹¤íŒ¨");
 			break;
 		case 3:
-			System.out.println("»èÁ¦ÇÒ È¸¿ø¹øÈ£ ÀÔ·Â : ");
-			int no = sc.nextInt();//3À» ÀÔ·ÂÇÔ
+			System.out.println("ì‚­ì œí•  íšŒì›ë²ˆí˜¸ ì…ë ¥ : ");
+			int no = sc.nextInt();///3ì„ ì…ë ¥í•¨
 			boolean flag =dao.deleteUser(no);
-			System.out.println(flag?"»èÁ¦¼º°ø":"˜´Á¦½ÇÆĞ");
+			System.out.println(flag?"ì‚­ì œì„±ê³µ":"ìƒ‚ì œì‹¤íŒ¨");
 			break;
 		case 4:
-			System.out.println("¼öÁ¤ÇÒ È¸¿ø Á¤º¸ ÀÔ·Â");
-			System.out.print("¼öÁ¤ÇÒ È¸¿ø¹øÈ£ ÀÔ·Â : ");
+			System.out.println("ìˆ˜ì •í•  íšŒì› ì •ë³´ ì…ë ¥");
+			System.out.print("ìˆ˜ì •í•  íšŒì›ë²ˆí˜¸ ì…ë ¥ : ");
 			no = sc.nextInt();
-			System.out.println("¼öÁ¤ÇÒ ÁÖ¼Ò ÀÔ·Â : ");
+			System.out.println("ìˆ˜ì •í•  ì£¼ì†Œ ì…ë ¥ : ");
 			String addr = sc.next();
 			flag = dao.updateUser(addr, no);
-			System.out.println(flag?"¼öÁ¤¼º°ø":"¼öÁ¤½ÇÆĞ");
+			System.out.println(flag?"ìˆ˜ì •ì„±ê³µ":"ìˆ˜ì •ì‹¤íŒ¨");
 			break;
 		}
 	}

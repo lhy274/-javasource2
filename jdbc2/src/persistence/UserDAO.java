@@ -18,9 +18,34 @@ public class UserDAO {
 		super();
 		this.con = con;
 	}
-	
+	//ê°œë³„ ì¡°íšŒ ë©”ì†Œë“œ
+	public UserVO getRow(int no) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		UserVO vo = null;
+		
+		try {
+			String sql = "select * from userTBL where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo = new UserVO();
+				vo.setNo(rs.getInt("no"));
+				vo.setUserName(rs.getString("userName"));
+				vo.setBirthYear(rs.getInt("birthYear"));
+				vo.setAddr(rs.getString("addr"));
+				vo.setMobile(rs.getString("mobile"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 
-	// Á¶È¸ ¸Ş¼Òµå
+	// ì „ì²´ ì¡°íšŒ ë©”ì†Œë“œ
 		public List<UserVO> getList() {
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -28,8 +53,8 @@ public class UserDAO {
 
 			try {
 
-				// select : ¿©·¯ ÇàÀÇ °á°ú°¡ Ãâ·Â(ArrayList)µÇ´Â °ÍÀÎÁö ¾Æ´Ï¸é ÇÏ³ªÀÇ Çà¸¸
-				// Ãâ·Â(~VO)µÇ´Â °ÍÀÎÁö¿¡ µû¶ó ´ãÀ» °´Ã¼°¡ °áÁ¤
+				// select : ì—¬ëŸ¬ í–‰ì˜ ê²°ê³¼ê°€ ì¶œë ¥(ArrayList)ë˜ëŠ” ê²ƒì¸ì§€ ì•„ë‹ˆë©´ í•˜ë‚˜ì˜ í–‰ë§Œ
+				// ì¶œë ¥(~VO)ë˜ëŠ” ê²ƒì¸ì§€ì— ë”°ë¼ ë‹´ì„ ê°ì²´ê°€ ê²°ì •
 				String sql = "select * from userTBL";
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();
@@ -48,12 +73,12 @@ public class UserDAO {
 			} finally {
 				close(rs);
 				close(pstmt);
-				close(con);
+				
 			}
 			return list;
 		}// List<UserVO> getList() end
 
-		// »èÁ¦ ¸Ş¼Òµå
+		// ì‚­ì œ ë©”ì†Œë“œ
 		public boolean deleteUser(int no) {
 			PreparedStatement pstmt = null;
 			boolean flag = false;
@@ -65,7 +90,7 @@ public class UserDAO {
 				pstmt.setInt(1, no);
 				int result = pstmt.executeUpdate();
 
-				if (result > 0) { // »èÁ¦¼º°øÇÏ¸é Æ®·ç, ½ÇÆĞ¸é ºí¸®¾È Æú½º
+				if (result > 0) { // ì‚­ì œì„±ê³µí•˜ë©´ íŠ¸ë£¨, ì‹¤íŒ¨ë©´ ë¸”ë¦¬ì•ˆ í´ìŠ¤
 					flag = true;
 				}
 
@@ -73,12 +98,13 @@ public class UserDAO {
 				e.printStackTrace();
 			} finally {
 				close(pstmt);
-				close(con);
+			
 			}
 			return flag;
 		}
 
-		// ¼öÁ¤ ¸Ş¼Òµå
+
+		// ìˆ˜ì • ë©”ì†Œë“œ
 		public boolean updateUser(String addr, int no) {
 			boolean flag = false;
 			PreparedStatement pstmt = null;
@@ -95,13 +121,13 @@ public class UserDAO {
 				e.printStackTrace();
 			} finally {
 				close(pstmt);
-				close(con);
+			
 			}
 
 			return flag;
 		}
 
-		// »ğÀÔ ¸Ş¼Òµå
+		// ì‚½ì… ë©”ì†Œë“œ
 		public boolean insertUser(UserVO vo) {
 			PreparedStatement pstmt = null;
 			boolean flag = false;
@@ -123,7 +149,7 @@ public class UserDAO {
 				e.printStackTrace();
 			} finally {
 				close(pstmt);
-				close(con);
+		
 			}
 			return flag;
 		}

@@ -3,60 +3,64 @@ package ui;
 import java.util.List;
 import java.util.Scanner;
 
+import action.Action;
+import action.UserAddAction;
+import action.UserRemoveAction;
+import action.UserRowAction;
+import action.UserUpdateAction;
+import action.UserListAction;
+import controller.UserController;
+
 public class UserMain {
-
 	public static void main(String[] args) {
-		System.out.println("==== UserTBL ====");
-		System.out.println("1. Á¶È¸");
-		System.out.println("2. »ğÀÔ");
-		System.out.println("3. »èÁ¦");
-		System.out.println("4. ¼öÁ¤");
-		System.out.println("===================");
-		
-		System.out.println("¹øÈ£ ÀÔ·Â : ");
+		boolean isStop = false;
 		Scanner sc = new Scanner(System.in);
-		int menu = sc.nextInt();
-		
-//		UserDAO dao = new UserDAO();
-//		
-//		switch(menu) {
-//		case 1:
-//			System.out.println("userTBL ÀüÃ¼ Ãâ·Â");
-//			List<UserVO> list=dao.getList();
-//			for(UserVO vo:list) {
-//				System.out.println(vo);
-//			}
-//			break;
-//		case 2:
-//			UserVO vo = new UserVO();
-//			System.out.println("Ãß°¡ÇÒ È¸¿ø¹øÈ£ ÀÔ·Â : ");
-//			int no = sc.nextInt();
-//			System.out.println("ÀÔ·ÂÇÒ È¸¿ø ÀÌ¸§ ÀÔ·Â : ");
-//			String name = sc.next();
-//			System.out.println("ÀÔ·ÂÇÒ È¸¿ø »ıÀÏ ÀÔ·Â : ");
-//			int birthYear = sc.nextInt();
-//			System.out.println("ÀÔ·ÂÇÒ È¸¿ø ÁÖ¼Ò ÀÔ·Â : ");
-//			String addr = sc.next();
-//			System.out.println("ÀÔ·ÂÇÒ È¸¿ø ÀüÈ­¹øÈ£ ÀÔ·Â : ");
-//			String mobile = sc.next();
-//			System.out.println(dao.insertUser(vo)?"ÀÔ·Â¼º°ø":"ÀÔ·Â½ÇÆĞ");
-//			break;
-//		case 3:
-//			System.out.println("»èÁ¦ÇÒ È¸¿ø¹øÈ£ ÀÔ·Â : ");
-//			no = sc.nextInt();//3À» ÀÔ·ÂÇÔ
-//			boolean flag =dao.deleteUser(no);
-//			System.out.println(flag?"»èÁ¦¼º°ø":"˜´Á¦½ÇÆĞ");
-//			break;
-//		case 4:
-//			System.out.println("¼öÁ¤ÇÒ È¸¿ø Á¤º¸ ÀÔ·Â");
-//			System.out.print("¼öÁ¤ÇÒ È¸¿ø¹øÈ£ ÀÔ·Â : ");
-//			no = sc.nextInt();
-//			System.out.println("¼öÁ¤ÇÒ ÁÖ¼Ò ÀÔ·Â : ");
-//			addr = sc.next();
-//			flag = dao.updateUser(addr, no);
-//			System.out.println(flag?"¼öÁ¤¼º°ø":"¼öÁ¤½ÇÆĞ");
-//			break;
-//		}
-	}
+		UserController UserController = new UserController();
+		do {
 
+			System.out.println("==== ì‚¬ìš©ì ë©”ë‰´ ====");
+			System.out.println("1. ì „ì²´ ì¡°íšŒ");
+			System.out.println("2. ì‚½ì…");
+			System.out.println("3. ì‚­ì œ");
+			System.out.println("4. ìˆ˜ì •");
+			System.out.println("5. ê°œë³„ ì¡°íšŒ");
+			System.out.println("6. í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
+			System.out.println("===================");
+
+			System.out.println("ë²ˆí˜¸ ì…ë ¥ : ");
+			int menu = sc.nextInt();
+
+			Action action = null;
+
+			switch (menu) {
+			case 1:
+				action = new UserListAction();
+
+				break;
+			case 2:
+				action = new UserAddAction();
+				break;
+			case 3:
+				action = new UserRemoveAction();
+				break;
+			case 4:
+				action = new UserUpdateAction();
+				break;
+			case 5:
+				action = new UserRowAction();
+				break;
+			case 6:
+				System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
+				isStop = true; // ë°˜ë³µë¬¸ ì¢…ë£Œ
+				break;
+			default:
+				break;
+			}
+			if (action != null) {
+				UserController.processRequest(action, sc);
+			}
+
+		} while (isStop);
+
+	}
 }

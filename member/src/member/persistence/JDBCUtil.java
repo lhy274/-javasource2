@@ -1,4 +1,4 @@
-package persistence;
+package member.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class JDBCUtil {
-	//드라이버 로드
+	// 드라이버 로드
 	static {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -16,7 +16,7 @@ public class JDBCUtil {
 		}
 	} // static end
 
-	//DB와 연결
+	// DB와 연결
 	// Connection 객체를 생성해주는 메소드
 	public static Connection getConnection() {
 		Connection con = null;
@@ -27,7 +27,7 @@ public class JDBCUtil {
 			String password = "12345";
 
 			con = DriverManager.getConnection(url, user, password);
-			//auto commit 중지
+			// auto commit 중지
 			con.setAutoCommit(false);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,8 +35,8 @@ public class JDBCUtil {
 		return con;
 	} /// public static Connection getConnection() end
 
-	//연결 종료 메서드
-	//객체 연결 종료 메서드
+	// 연결 종료 메서드
+	// 객체 연결 종료 메서드
 	public static void close(Connection con) {
 		try {
 			con.close();
@@ -68,7 +68,7 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void rollback(Connection con) {
 		try {
 			con.rollback();
@@ -76,7 +76,5 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}
 	}
-	
 
-	
 }
