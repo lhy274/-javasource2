@@ -3,12 +3,12 @@ package exam;
 import java.util.ArrayList;
 import java.util.List;
 
-/*µ¥ÀÌÅÍ¸¦ ¾îµğ¿¡ ´ãÀ» °ÍÀÎ°¡? ±âº»ÇüÅ¸ÀÔ, Å¬·¡½º(°´Ã¼) Å¸ÀÔ
+/*ë°ì´í„°ë¥¼ ì–´ë””ì— ë‹´ì„ ê²ƒì¸ê°€? ê¸°ë³¸í˜•íƒ€ì…, í´ë˜ìŠ¤(ê°ì²´) íƒ€ì…
 *
-*±âº»Çü : int, float, double, char
-*°´Ã¼ : Integer, Float,Double, String.....
+*ê¸°ë³¸í˜• : int, float, double, char
+*ê°ì²´ : Integer, Float,Double, String.....
 *
-*µ¥ÀÌÅÍ°¡ ¸¹¾ÆÁú¶§ : ¹è¿­, Collection(List, Set), Map
+*ë°ì´í„°ê°€ ë§ì•„ì§ˆë•Œ : ë°°ì—´, Collection(List, Set), Map
 *
 *List : ArrayList, LinkedList, 
 *
@@ -19,18 +19,18 @@ import java.util.List;
 public class ArrayListTest {
 
 	public static void main(String[] args) {
-		//List°´Ã¼ »ı¼º
+		//Listê°ì²´ ìƒì„±
 		List<String> list = new ArrayList<String>();
 		
-		//»ı¼ºµÈ list¿¡ ¿ä¼Ò Ãß°¡
+		//ìƒì„±ëœ listì— ìš”ì†Œ ì¶”ê°€
 		list.add("Java");
 		list.add("JDBC");
 		list.add("oracle");
 		list.add("html");
 		
-		//¿ä¼Ò È®ÀÎ
+		//ìš”ì†Œ í™•ì¸
 		
-		//ÀüÃ¼ ¿ä¼Ò È®ÀÎ
+				//ì „ì²´ ìš”ì†Œ í™•ì¸
 		for(String str:list) {
 			System.out.println(str);
 		}
@@ -45,7 +45,7 @@ public class ArrayListTest {
 		
 		
 		System.out.println();
-		//Æ¯Á¤ ¿ä¼Ò È®ÀÎ
+		//íŠ¹ì • ìš”ì†Œ í™•ì¸
 		System.out.println(list.get(2));
 		
 		

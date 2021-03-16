@@ -59,9 +59,37 @@ public class MemberConsoleUtil {
 		System.out.println("회원 정보 삭제 실패");
 	}// getAddrMember end
 	
+	//수정할 정보를  입력받는 화면 메소드
+	public MemberVO printUpdateMessage(Scanner sc) {
+		//
+		System.out.println("*** Member정보수정 ****");
+		System.out.println("아이디 입력 : ");
+		int id = sc.nextInt();
+		System.out.println("주소입력 : ");
+		String addr = sc.next();
+		System.out.println("이메일 입력 : ");
+		String email = sc.next();
+		
+		//
+		MemberVO updateMember = new MemberVO();
+		updateMember.setId(id);
+		updateMember.setAddr(addr);
+		updateMember.setEmail(email);
+		
+		return updateMember;
+	}
 	
-	
+	// 수정결과 출력하기
+	public void printUpdateSuccessFail(boolean updateFlag) {
+		System.out.println(updateFlag?"수정성공":"수정실해");
+	}
 }
+
+
+
+
+
+
 
 
 

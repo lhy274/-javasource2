@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-	// µå¶óÀÌ¹ö ·Îµå
+	// ë“œë¼ì´ë²„ ë¡œë“œ
 	static {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -17,7 +17,7 @@ public class UserDAO {
 		}
 	} // static end
 
-	// Connection °´Ã¼¸¦ »ı¼ºÇØÁÖ´Â ¸Ş¼Òµå
+	// Connection ê°ì²´ë¥¼ ìƒì„±í•´ì£¼ëŠ” ë©”ì†Œë“œ
 	public static Connection getConnection() {
 		Connection con = null;
 
@@ -57,7 +57,7 @@ public class UserDAO {
 		}
 	}// close(ResultSet rs) end
 
-	// Á¶È¸ ¸Ş¼Òµå
+	// ì¡°íšŒ ë©”ì†Œë“œ
 	public List<UserVO> getList() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -66,8 +66,8 @@ public class UserDAO {
 
 		try {
 			con = getConnection();
-			// select : ¿©·¯ ÇàÀÇ °á°ú°¡ Ãâ·Â(ArrayList)µÇ´Â °ÍÀÎÁö ¾Æ´Ï¸é ÇÏ³ªÀÇ Çà¸¸
-			// Ãâ·Â(~VO)µÇ´Â °ÍÀÎÁö¿¡ µû¶ó ´ãÀ» °´Ã¼°¡ °áÁ¤
+			// select : ì—¬ëŸ¬ í–‰ì˜ ê²°ê³¼ê°€ ì¶œë ¥(ArrayList)ë˜ëŠ” ê²ƒì¸ì§€ ì•„ë‹ˆë©´ í•˜ë‚˜ì˜ í–‰ë§Œ
+		    // ì¶œë ¥(~VO)ë˜ëŠ” ê²ƒì¸ì§€ì— ë”°ë¼ ë‹´ì„ ê°ì²´ê°€ ê²°ì •
 			String sql = "select * from userTBL";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -91,7 +91,7 @@ public class UserDAO {
 		return list;
 	}// List<UserVO> getList() end
 
-	// »èÁ¦ ¸Ş¼Òµå
+	// ì‚­ì œ ë©”ì†Œë“œ
 	public boolean deleteUser(int no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -105,7 +105,7 @@ public class UserDAO {
 			pstmt.setInt(1, no);
 			int result = pstmt.executeUpdate();
 
-			if (result > 0) { // »èÁ¦¼º°øÇÏ¸é Æ®·ç, ½ÇÆĞ¸é ºí¸®¾È Æú½º
+			if (result > 0) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Æ®ï¿½ï¿½, ï¿½ï¿½ï¿½Ğ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				flag = true;
 			}
 
@@ -118,7 +118,7 @@ public class UserDAO {
 		return flag;
 	}
 
-	// ¼öÁ¤ ¸Ş¼Òµå
+	// ìˆ˜ì • ë©”ì†Œë“œ
 	public boolean updateUser(String addr, int no) {
 		boolean flag = false;
 		Connection con = null;
@@ -143,7 +143,7 @@ public class UserDAO {
 		return flag;
 	}
 
-	// »ğÀÔ ¸Ş¼Òµå
+	// ì‚½ì… ë©”ì†Œë“œ
 	public boolean insertUser(UserVO vo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;

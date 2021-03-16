@@ -1,7 +1,7 @@
 package pattern;
 
 public class UserVO {
-	// userTBL ���̺��� �ϳ��� ���ڵ带 ���� �� �ִ� ���·� �ۼ�
+	// userTBL 테이블의 하나의 레코드를 담을 수 있는 형태로 작성
 	
 //	  NO NUMBER(8) CONSTRAINT PK_USERTBL PRIMARY KEY,
 //    USERNAME NCHAR(4) NOT NULL,

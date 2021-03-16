@@ -10,21 +10,21 @@ public class DBConnect {
 		
 		Connection con=null;
 		try {
-			//¿À¶óÅ¬ µå¶óÀÌ¹ö ·Îµå
+			//ì˜¤ë¼í´ ë“œë¼ì´ë²„ ë¡œë“œ
 			Class.forName("oracle.jdbc.OracleDriver");
 			String url ="jdbc:oracle:thin:@localhost:1521:orcl";
 			String user = "javaDB";
 			String password = "12345";
-			//DB¿Í ¿¬°á
+			//dbì™€ ì—°ê²°
 			con = DriverManager.getConnection(url, user, password);
 			if(con!=null) {
-				System.out.println("¿¬°áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				//ÀÚ¿øÇØÁ¦
+				//ìì›í•´ì œ
 			con.close();
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block

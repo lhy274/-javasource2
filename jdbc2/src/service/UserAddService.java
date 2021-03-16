@@ -13,11 +13,16 @@ public class UserAddService {
 		Connection con = getConnection();
 		UserDAO dao = new UserDAO(con);
 		
-		if(dao.insertUser(vo)) {
-			commit(con);
+//		if(dao.insertUser(vo)) {
+//			commit(con);
+//			isInsertSuccess = true;
+//		}else {
+//			rollback(con);
+//		}
+		
+		// 프로시저
+		if(dao.insertNewUser(vo)) {
 			isInsertSuccess = true;
-		}else {
-			rollback(con);
 		}
 		
 		close(con);

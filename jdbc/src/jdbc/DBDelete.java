@@ -31,7 +31,7 @@ public class DBDelete {
 				pstmt = con.prepareStatement(sql);
 				
 				int result = pstmt.executeUpdate();
-				System.out.println(result>0?"昏力己傍":"昏力角菩");
+				System.out.println(result>0?"靷牅靹标车":"靷牅鞁ろ尐");
 			}
 		
 		} catch (SQLException e) {

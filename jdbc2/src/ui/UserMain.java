@@ -51,7 +51,7 @@ public class UserMain {
 				break;
 			case 6:
 				System.out.println("프로그램 종료");
-				isStop = true; // 반복문 종료
+				isStop = false; // 반복문 종료 // isStop = true에서서 false로 바꿈.
 				break;
 			default:
 				break;

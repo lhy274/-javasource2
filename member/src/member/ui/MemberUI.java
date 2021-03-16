@@ -6,6 +6,7 @@ import member.action.Action;
 import member.action.MemberAddAction;
 import member.action.MemberListAction;
 import member.action.MemberRemoveAction;
+import member.action.MemberUpdateAction;
 import member.controller.MemberController;
 
 public class MemberUI {
@@ -34,19 +35,19 @@ public class MemberUI {
 				action = new MemberListAction();
 				break;
 			case 3:
-
+				action = new MemberUpdateAction();
 				break;
 			case 4:
 				action = new MemberRemoveAction();
 				break;
 			case 5:
-
+				isStop = true;//반복문 종료 //jdbc2에서는 false였는데 여기는 true야!!
+				System.out.println("프로그램을 종료합니다.");
 				break;
-
 			default:
 				break;
 			}
-			if (action != null) {
+			if (action!=null) {
 				controller.processRequest(action, sc);
 			}
 		} while (!isStop);

@@ -9,9 +9,9 @@ public class DBSelect {
 
 	public static void main(String[] args) {
 		Connection con=null;
-		//sql ¹® Àü¼Û 
+		//sql ë¬¸ ì „ì†¡ 
 		PreparedStatement pstmt=null;
-		//sql ¹® °á°ú
+		//sql ë¬¸ ê²°ê³¼
 		ResultSet rs=null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -24,7 +24,7 @@ public class DBSelect {
 				String sql = "select * from userTBL";
 				
 				pstmt = con.prepareStatement(sql);
-				//Àü¼ÛµÈ sql¹® ½ÇÇà ÈÄ °á°ú ´ã±â
+				//ì „ì†¡ëœ sqlë¬¸ ì‹¤í–‰ í›„ ê²°ê³¼ ë‹´ê¸°
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
 					System.out.print(rs.getInt(1)+"\t");

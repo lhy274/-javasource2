@@ -19,16 +19,16 @@ public class DBInsert {
 
 			con = DriverManager.getConnection(url, user, password);
 			if(con!=null)  {
-				String sql = "insert into userTBL values " + "(userTBL_seq.nextval, '±è½Â¿ì',1996,'¼­¿ï',"+"'010-1569-4869')";
+				String sql = "insert into userTBL values " + "(userTBL_seq.nextval, 'ê¹€ìŠ¹ìš°',1996,'ì„œìš¸',"+"'010-1569-4869')";
 				
 				pstmt = con.prepareStatement(sql);
-				//insert,update,delete ±¸¹®Àº executeUpdate() ½ÌÇà ÇØ¾ßÇÔ
+				//insert,update,delete êµ¬ë¬¸ì€ executeUpdate() ì‹±í–‰ í•´ì•¼í•¨
 				int result = pstmt.executeUpdate();
 				
 				if(result>0) {
-					System.out.println("ÀÔ·Â ¼º°ø");
+					System.out.println("ìž…ë ¥ ì„±ê³µ");
 				} else {
-					System.out.println("ÀÔ·Â ½ÇÆÐ");
+					System.out.println("ìž…ë ¥ ì‹¤íŒ¨");
 				}
 			
 			}

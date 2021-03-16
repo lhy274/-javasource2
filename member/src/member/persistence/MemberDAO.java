@@ -80,7 +80,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "update member set addr=?, email=?, where id=?";
+			String sql = "update member set addr=?, email=? where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, updateMember.getAddr());
 			pstmt.setString(2, updateMember.getEmail());
